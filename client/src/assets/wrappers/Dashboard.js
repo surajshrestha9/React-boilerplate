@@ -7,8 +7,10 @@ const Wrapper = styled.section`
   }
   .dashboard-page {
     width: 90vw;
+    /* 90% for screen width */
     margin: 0 auto;
     padding: 2rem 0;
+    /* top bottom Left Right */
   }
   @media (min-width: 992px) {
     .dashboard {
@@ -16,6 +18,7 @@ const Wrapper = styled.section`
     }
     .dashboard-page {
       width: 90%;
+      /* 90% of the content */
     }
   }
 `;
