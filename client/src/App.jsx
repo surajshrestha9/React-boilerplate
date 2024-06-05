@@ -12,6 +12,16 @@ import {
   Profile,
   Admin,
 } from "./pages";
+
+export const checkDefaultTheme = () => {
+  // accesing from local storage
+  const isDarkTheme = localStorage.getItem("darkTheme") === "true";
+  document.body.classList.toggle("dark-theme", isDarkTheme);
+  return isDarkTheme;
+};
+checkDefaultTheme();  //invoking fxn
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,11 +42,11 @@ const router = createBrowserRouter([
       },
       {
         path: "dashboard",
-        element: <DashboardLayout />,
+        element: <DashboardLayout />, //Dark theme here is a prop
         children: [
           { index: true, element: <AddJob /> },
           { path: "stats", element: <Stats /> },
-          { path: "AllJobs", element: <AllJobs /> },
+          { path: "all-jobs", element: <AllJobs /> },
           { path: "Profile", element: <Profile /> },
           { path: "Admin", element: <Admin /> },
         ],
