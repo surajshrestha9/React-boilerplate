@@ -9,10 +9,20 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
-//fetch is a promise->use then
-fetch("https://www.course-api.com/react-useReducer-cart-project")
-  .then((res) => res.json())
-  .then((data) => console.log(data));
+try {
+  const response = await fetch(
+    "https://www.course-api.com/react-useReducer-cart-project"
+  );
+  const cartData = await response.json();
+  console.log(cartData);
+} catch (error) {
+  console.log(error);
+}
+
+// //fetch is a promise->use then
+// fetch("https://www.course-api.com/react-useReducer-cart-project")
+//   .then((res) => res.json())
+//   .then((data) => console.log(data));
 
 app.use(express.json());
 app.get("/", (req, res) => {
